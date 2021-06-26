@@ -2,23 +2,38 @@ import { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
-  const [enteredTitle, setEnteredTitle] = useState("");
-  const [enteredAmount, setEnteredAmount] = useState("");
-  const [enteredDate, setEnteredDate] = useState("");
+  // const [enteredTitle, setEnteredTitle] = useState("");
+  // const [enteredAmount, setEnteredAmount] = useState("");
+  // const [enteredDate, setEnteredDate] = useState("");
+
+  const [userInput, setUserInput] = useState({
+    enteredTitle: "",
+    enteredAmount: "",
+    enteredDate: "",
+  });
 
   const titleChangeHandler = (event) => {
     const { value } = event.target;
-    setEnteredTitle(value);
+    // setEnteredTitle(value);
+    setUserInput((prevState) => {
+      return { ...prevState, enteredTitle: value };
+    });
   };
 
   const amountChangeHandler = (event) => {
     const { value } = event.target;
-    setEnteredAmount(value);
+    // setEnteredAmount(value);
+    setUserInput((prevState) => {
+      return { ...prevState, enteredAmount: value };
+    });
   };
 
   const dateChangeHandler = (event) => {
     const { value } = event.target;
-    setEnteredDate(value);
+    // setEnteredDate(value);
+    setUserInput((prevState) => {
+      return { ...prevState, enteredDate: value };
+    });
   };
 
   return (
